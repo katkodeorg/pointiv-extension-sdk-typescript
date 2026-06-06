@@ -1,0 +1,33 @@
+{
+  "name": "@katkode/pointiv-extension-sdk",
+  "version": "0.3.0",
+  "description": "TypeScript SDK for building Pointiv WASM extensions (extism-js)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katkodeorg/pointiv-extension-sdk-typescript"
+  },
+  "keywords": ["pointiv", "extension", "sdk", "wasm", "plugin"],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@extism/js-pdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@extism/js-pdk": "^1.1.1",
+    "typescript": "^5.8.3"
+  }
+}
