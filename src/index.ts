@@ -15,3 +15,21 @@ export { http } from "./http.js";
 export { googleCalendar } from "./google-calendar.js";
 export { googleGmail } from "./google-gmail.js";
 export { readInput, writeOutput } from "./runtime.js";
+
+export type {
+  TileAction,
+  TileBadge,
+  TileBadgeNode,
+  TileComponentNode,
+  TileCountdownNode,
+  TileDividerNode,
+  TileNode,
+  TileProgressNode,
+  TileRenderInput,
+  TileRowNode,
+  TileTextNode,
+  TileTone,
+  TileUi,
+} from "./tile.js";
+
+export { readTileInput, tile, writeTileOutput } from "./tile.js";

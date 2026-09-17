@@ -14,6 +14,9 @@ type PointivHost = {
 const host = Host.getFunctions() as PointivHost;
 
 function readString(ptr: I64): string {
+  // Extism uses offset 0 for empty/null allocations; Memory.find(0) is undefined in extism-js.
+  // I64 may be a number or a bigint, so compare via Number() to catch 0n too.
+  if (Number(ptr) === 0) return "";
   return Memory.find(ptr).readString();
 }
 
