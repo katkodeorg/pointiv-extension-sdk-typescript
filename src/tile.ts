@@ -18,6 +18,10 @@ export type TileTone = "neutral" | "ok" | "warn" | "danger";
 export interface TileAction {
   label: string;
   command: string;
+  /** Placeholder text. When set, the host renders a text field next to the
+      button and dispatches `command` plus a space plus the typed text.
+      Placeholder max 60 characters. */
+  input?: string;
 }
 
 /** A small status chip attached to a row. */
@@ -121,8 +125,10 @@ export const tile = {
     return ui;
   },
 
-  action(label: string, command: string): TileAction {
-    return { label, command };
+  action(label: string, command: string, input?: string): TileAction {
+    const a: TileAction = { label, command };
+    if (input !== undefined) a.input = input;
+    return a;
   },
 
   text(text: string, options?: { tone?: TileTone; muted?: boolean }): TileTextNode {
